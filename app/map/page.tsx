@@ -1,9 +1,5 @@
-"use client";
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import dynamic from "next/dynamic";
-
-const WeatherMap = dynamic(() => import("@/components/WeatherMap"), { ssr: false });
+import WeatherMap from "@/components/WeatherMap";
 
 export default function Home() {
   return (
