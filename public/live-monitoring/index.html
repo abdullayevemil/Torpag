@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Farm Map System</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css"
+    />
+
+    <style></style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <form action="#" class="info_card" id="sensorCard">
+      <span
+        class="close-btn"
+        onclick="document.getElementById('sensorCard').style.display='none'"
+        >&times;</span
+      >
+      <h3>Sensor Information</h3>
+
+      <label for="sensorId">Sensor ID:</label>
+      <input type="text" id="sensorId" name="sensorId" />
+
+      <label for="sensorType">Sensor Type:</label>
+      <select id="sensorType" name="sensorType">
+        <option value="">Select Sensor Type</option>
+        <option value="7in1">7 in 1</option>
+        <option value="5in1">5 in 1</option>
+        <option value="3in1">3 in 1</option>
+      </select>
+
+      <label>Latitude:</label>
+      <input type="text" id="sensorLat" name="sensorLat" readonly />
+
+      <label>Longitude:</label>
+      <input type="text" id="sensorLng" name="sensorLng" readonly />
+
+      <label>
+        <input type="checkbox" id="useTodayDate" />
+        Get Today's Date
+      </label>
+
+      <label for="installationDate">Installation Date:</label>
+      <input type="date" id="installationDate" name="installationDate" />
+
+      <button type="button" id="submitBtn">Submit</button>
+    </form>
+
+    <form action="POST" class="info_card" id="motorCard">
+      <span
+        class="close-btn"
+        onclick="document.getElementById('motorCard').style.display='none'"
+        >&times;</span
+      >
+      <h3>Motor Information</h3>
+
+      <label for="motorId">Motor ID:</label>
+      <input type="text" id="motorId" name="motorId" />
+
+      <label for="motorType">Sensor Type:</label>
+      <select id="motorType" name="motorType">
+        <option value="">Select Sensor Type</option>
+        <option value="7in1">7 in 1</option>
+        <option value="5in1">5 in 1</option>
+        <option value="3in1">3 in 1</option>
+      </select>
+
+      <label>Latitude:</label>
+      <input type="text" id="motorLat" name="motorLat" readonly />
+
+      <label>Longitude:</label>
+      <input type="text" id="motorLng" name="motorLng" readonly />
+
+      <label>
+        <input type="checkbox" id="useTodayDateMotor" />
+        Get Today's Date
+      </label>
+
+      <label for="installationDateMotor">Installation Date:</label>
+      <input type="date" id="installationDateMotor" name="installationDateMotor" />
+
+      <button type="button" id="MotorSubmitBtn">Submit</button>
+    </form>
+    <script src="Data.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+    <script src="icons.js"></script>
+    <script src="loaders.js"></script>
+    <script src="script.js"></script>
+    <script src="buttonControls.js"></script>
+    <script src="toolbarbuttons.js"></script>
+    <script src="Polygon.js"></script>
+  </body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Torpag Farm Map - Esri Tiles</title>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
+
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    #map {
+      height: 100%;
+      width: 100%;
+    }
+
+    .leaflet-container {
+      background: #f8fafc;
+    }
+
+    .leaflet-control-attribution {
+      font-size: 10px;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="map"></div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+
+  <script>
+    // Initialize map at Quba village
+    const map = L.map("map", { zoomControl: true }).setView([40.50, 49.00], 2);
+
+    // Esri World Imagery tiles
+    L.tileLayer(
+      "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+      {
+        maxZoom: 20,
+        attribution: "Tiles ©️ Esri",
+      }
+    ).addTo(map);
+
+    // Farm 1
+    const farm1 = L.polygon([
+      [40.60, 48.90],
+      [40.65, 48.95],
+      [40.55, 49.00],
+      [40.50, 48.95],
+    ], { color: "#dc2626", fillColor: "#dc2626", fillOpacity: 0.15 }).addTo(map);
+    farm1.bindPopup("<strong>Farm 1</strong>");
+
+    // Farm 2
+    const farm2 = L.polygon([
+      [40.40, 49.10],
+      [40.45, 49.15],
+      [40.35, 49.20],
+      [40.30, 49.10],
+    ], { color: "#dc2626", fillColor: "#dc2626", fillOpacity: 0.15 }).addTo(map);
+    farm2.bindPopup("<strong>Farm 2</strong>");
+
+    // Farm 3
+    const farm3 = L.polygon([
+      [40.70, 48.80],
+      [40.75, 48.85],
+      [40.65, 48.90],
+      [40.60, 48.80],
+    ], { color: "#dc2626", fillColor: "#dc2626", fillOpacity: 0.15 }).addTo(map);
+    farm3.bindPopup("<strong>Farm 3</strong>");
+
+    // Sensor markers (optional examples)
+    const sensor1 = L.circleMarker([40.60, 48.95], { radius: 6, color: "#dc2626", fillColor: "#f87171", fillOpacity: 0.9 }).addTo(map);
+    sensor1.bindPopup("Sensor 1");
+
+    const sensor2 = L.circleMarker([40.40, 49.15], { radius: 6, color: "#dc2626", fillColor: "#f87171", fillOpacity: 0.9 }).addTo(map);
+    sensor2.bindPopup("Sensor 2");
+
+    const sensor3 = L.circleMarker([40.70, 48.85], { radius: 6, color: "#dc2626", fillColor: "#f87171", fillOpacity: 0.9 }).addTo(map);
+    sensor3.bindPopup("Sensor 3");
+
+    // Fit map to all farms
+    const group = L.featureGroup([farm1, farm2, farm3]);
+    map.fitBounds(group.getBounds(), { padding: [50, 50] });
+  </script>
+</body>
+
+</html>
