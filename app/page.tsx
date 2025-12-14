@@ -104,7 +104,7 @@ export default function Dashboard() {
           </CardHeader>
           <CardContent className="h-[300px] overflow-hidden rounded-xl p-0">
             {/* Leaflet placeholder */}
-            <iframe src="leaflet-map.html" className="h-full w-full border-0" />
+            <iframe src="leaflet-map.html" className="h-full w-full border-0" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"/>
           </CardContent>
         </Card>
 

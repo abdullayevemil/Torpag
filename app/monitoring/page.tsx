@@ -5,6 +5,7 @@ export default function MapEmbed() {
         src="https://anarnajaf.github.io/Map---Leaflet-JS---WEB-API/"
         className="w-full h-full border-0"
         title="Farm Map"
+        sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
       ></iframe>
     </div>
   );
