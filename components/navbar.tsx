@@ -28,6 +28,12 @@ const navItems = [
 export default function Sidebar() {
   const pathname = usePathname();
 
+  const handleClick = (e: React.MouseEvent) => {
+    if (e.ctrlKey || e.metaKey) {
+      e.preventDefault();
+    }
+  };
+
   return (
     <aside className="flex w-64 flex-col border-r border-black/10 bg-white">
       <div className="flex h-16 items-center gap-5 px-6">
@@ -42,7 +48,7 @@ export default function Sidebar() {
           const isActive = pathname === item.href;
 
           return (
-            <Link key={item.name} href={item.href}>
+            <Link onClick={handleClick} key={item.name} href={item.href}>
               <div
                 className={cn(
                   "flex items-center gap-3 rounded-xl p-4 text-sm font-medium transition",
