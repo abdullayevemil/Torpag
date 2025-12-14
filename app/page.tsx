@@ -47,7 +47,7 @@ const stats = [
     bg: "bg-blue-500/15",
   },
   {
-    title: "Machinery",
+    title: "Connected devices",
     amount: "6",
     desc: "Operational units",
     icon: Tractor,
